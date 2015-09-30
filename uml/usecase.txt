@@ -1,0 +1,63 @@
+@startuml(user_usecase.png)
+title ユースケース
+actor :ユーザ: as user
+
+user--(ログイン)
+user--(商品検索)
+user--(商品詳細)
+user--(カート商品追加)
+user--(カート確認)
+user--(カート商品購入)
+user--(ユーザ登録)
+actor :管理者: as manager
+manager--(ログイン)
+manager--(商品検索)
+manager--(商品詳細)
+manager--(商品削除)
+manager--(商品登録)
+manager--(ユーザ検索)
+manager--(ユーザ削除)
+manager--(ユーザ登録)
+@enduml
+@startuml(user_state.png)
+title ユーザ状態遷移
+[*]->未ログインユーザ:ログインクッキーなし
+[*]->ログインユーザ:ログインクッキーあり
+未ログインユーザ->ログインユーザ:ログイン
+ログインユーザ->未ログインユーザ:ログアウト
+@enduml
+@startuml(model.png)
+title モデル
+package io.github.drmashu.koshop.model {
+class Account {
++ String id
++ String name
++ String postalcode
++ String address
+}
+
+class User {
++ bool login(String password)
+}
+User<|-Customer
+User<|-Manager
+
+Customer->Cart
+Customer->Account
+class Cart {
++ add(Items items)
+}
+Cart"1"->"*"Items
+
+class Items{
++ int count
+}
+Items"1"->"1"Item
+
+class Item {
++ String name
++ String description
++ Double price
+}
+}
+@enduml
