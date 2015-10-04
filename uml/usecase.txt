@@ -1,33 +1,33 @@
 @startuml(user_usecase.png)
-title ƒ†[ƒXƒP[ƒX
-actor :ƒ†[ƒU: as user
+title ãƒ¦ãƒ¼ã‚¹ã‚±ãƒ¼ã‚¹
+actor :ãƒ¦ãƒ¼ã‚¶: as user
 
-user--(ƒƒOƒCƒ“)
-user--(¤•iŒŸõ)
-user--(¤•iÚ×)
-user--(ƒJ[ƒg¤•i’Ç‰Á)
-user--(ƒJ[ƒgŠm”F)
-user--(ƒJ[ƒg¤•iw“ü)
-user--(ƒ†[ƒU“o˜^)
-actor :ŠÇ—ŽÒ: as manager
-manager--(ƒƒOƒCƒ“)
-manager--(¤•iŒŸõ)
-manager--(¤•iÚ×)
-manager--(¤•iíœ)
-manager--(¤•i“o˜^)
-manager--(ƒ†[ƒUŒŸõ)
-manager--(ƒ†[ƒUíœ)
-manager--(ƒ†[ƒU“o˜^)
+user--(ãƒ­ã‚°ã‚¤ãƒ³)
+user--(å•†å“æ¤œç´¢)
+user--(å•†å“è©³ç´°)
+user--(ã‚«ãƒ¼ãƒˆå•†å“è¿½åŠ )
+user--(ã‚«ãƒ¼ãƒˆç¢ºèª)
+user--(ã‚«ãƒ¼ãƒˆå•†å“è³¼å…¥)
+user--(ãƒ¦ãƒ¼ã‚¶ç™»éŒ²)
+actor :ç®¡ç†è€…: as manager
+manager--(ãƒ­ã‚°ã‚¤ãƒ³)
+manager--(å•†å“æ¤œç´¢)
+manager--(å•†å“è©³ç´°)
+manager--(å•†å“å‰Šé™¤)
+manager--(å•†å“ç™»éŒ²)
+manager--(ãƒ¦ãƒ¼ã‚¶æ¤œç´¢)
+manager--(ãƒ¦ãƒ¼ã‚¶å‰Šé™¤)
+manager--(ãƒ¦ãƒ¼ã‚¶ç™»éŒ²)
 @enduml
 @startuml(user_state.png)
-title ƒ†[ƒUó‘Ô‘JˆÚ
-[*]->–¢ƒƒOƒCƒ“ƒ†[ƒU:ƒƒOƒCƒ“ƒNƒbƒL[‚È‚µ
-[*]->ƒƒOƒCƒ“ƒ†[ƒU:ƒƒOƒCƒ“ƒNƒbƒL[‚ ‚è
-–¢ƒƒOƒCƒ“ƒ†[ƒU->ƒƒOƒCƒ“ƒ†[ƒU:ƒƒOƒCƒ“
-ƒƒOƒCƒ“ƒ†[ƒU->–¢ƒƒOƒCƒ“ƒ†[ƒU:ƒƒOƒAƒEƒg
+title ãƒ¦ãƒ¼ã‚¶çŠ¶æ…‹é·ç§»
+[*]->æœªãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶:ãƒ­ã‚°ã‚¤ãƒ³ã‚¯ãƒƒã‚­ãƒ¼ãªã—
+[*]->ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶:ãƒ­ã‚°ã‚¤ãƒ³ã‚¯ãƒƒã‚­ãƒ¼ã‚ã‚Š
+æœªãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶->ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶:ãƒ­ã‚°ã‚¤ãƒ³
+ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶->æœªãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶:ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ
 @enduml
 @startuml(model.png)
-title ƒ‚ƒfƒ‹
+title ãƒ¢ãƒ‡ãƒ«
 package io.github.drmashu.koshop.model {
 class Account {
 + String id
