@@ -10,8 +10,9 @@ import org.seasar.doma.*
  */
 @Dao
 public interface ItemDao {
+    @Select fun selectAll(): List<Item>
     @Select fun selectById(id: ItemId): Item
-    @Select fun selectByName(name: ItemName): Item
+    @Select fun selectByName(name: ItemName): List<Item>
     @Insert fun Insert(item: Item): Int
     @Update fun update(item: Item): Int
     @Delete fun delete(item: Item): Int
