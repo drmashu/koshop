@@ -1,25 +1,22 @@
 package io.github.drmashu.koshop
 
+import io.github.drmashu.buri.Buri
+import io.github.drmashu.buri.BuriRunner
+import io.github.drmashu.dikon.Factory
+import io.github.drmashu.dikon.Injection
 import io.github.drmashu.koshop.model.*
 
 /**
  * Created by drmashu on 2015/10/07.
  */
 fun main(args: Array<String>){
-    val obj = Account(UID("id"), Name("name"), Password("password"), PostalCode("448-0813"), Address("address"), Phone("000"))
-    val clazz = obj.javaClass
-    clazz.fields.forEach {
-        print("field ${it.name} ")
-        it.annotations.forEach {
-            print("${it.javaClass.name} ")
-        }
-        println()
-    }
-    clazz.methods.forEach {
-        print("method ${it.name}")
-        it.annotations.forEach {
-            print("${it.javaClass.name} ")
-        }
-        println()
-    }
+    BuriRunner(Koshop()).start(8080)
+}
+
+class Koshop : Buri() {
+    override val config: Map<String, Factory<*>>
+        get() = mapOf(
+                "/" to Injection(pages.index::class)
+        )
+
 }
