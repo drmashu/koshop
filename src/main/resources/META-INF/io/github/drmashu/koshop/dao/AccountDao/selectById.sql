@@ -1,0 +1,1 @@
+SELECT /*%expand*/* FROM account WHERE id = /* arg0 */'hoge'

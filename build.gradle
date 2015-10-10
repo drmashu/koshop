@@ -2,7 +2,8 @@ buildscript {
     ext {
         kotlinVersion = '0.14.449'
         domaVersion = '2.4.1'
-        genSrcDir = 'src/gen/kotlin'
+        buriteriDestDir = 'src/gen/kotlin'
+        buriteriSrcDir = 'src/main/buriteri'
         templatePackage = 'pages'
     }
     repositories.jcenter()
@@ -11,22 +12,23 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'maven'
-//apply plugin: 'war'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 group = 'io.github.drmashu'
 version = '0.1-SNAPSHOT'
 
 description = """"""
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 repositories {
-    jcenter()
     mavenCentral()
     mavenLocal()
+    jcenter()
     maven { url "http://oss.sonatype.org/content/repositories/snapshots" }
 }
 
@@ -34,26 +36,31 @@ configurations {
     buriteri
 }
 
+task precompileBuriteri << {
+    ant.taskdef(name: 'buriteri',
+            classname: 'io.github.drmashu.buri.template.BuriTeriTask',
+            classpath: configurations.buriteri.asPath)
+    ant.buriteri(srcdir: buriteriSrcDir,
+            destdir: buriteriDestDir,
+            packagename: templatePackage)
+}
+compileKotlin.dependsOn precompileBuriteri
+compileJava.dependsOn processResources
+processResources.destinationDir = compileJava.destinationDir
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets {
+    main.kotlin.srcDirs += buriteriDestDir
+}
+
 dependencies {
     compile group: 'junit', name: 'junit', version:'4.12'
     compile group: 'io.github.drmashu', name: 'buri', version:'0.1-SNAPSHOT'
+    compile group: 'com.h2database', name:'h2', version:'1.4.189'
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version:kotlinVersion
     compile group: 'org.seasar.doma', name: 'doma', version:domaVersion
-    compile group: 'com.h2database', name:'h2', version:'1.4.189'
     kapt group: 'org.seasar.doma', name: 'doma', version:domaVersion
     testCompile group: 'junit', name: 'junit', version: '4.11'
     buriteri group: 'io.github.drmashu', name: 'buriteri', version:'0.1-SNAPSHOT'
 }
 
-task precompileBuriteri << {
-    ant.taskdef(name: 'buriteri',
-            classname: 'io.github.drmashu.buri.template.BuriTeriTask',
-            classpath: configurations.buriteri.asPath)
-    ant.buriteri(srcdir: 'src/main/buriteri',
-            destdir: 'src/gen/kotlin',
-            packagename: templatePackage)
-}
-build.dependsOn precompileBuriteri
-sourceSets {
-    main.kotlin.srcDirs += 'src/gen/kotlin'
-}

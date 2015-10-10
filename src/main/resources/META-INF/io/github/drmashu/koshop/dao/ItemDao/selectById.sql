@@ -1,0 +1,1 @@
+SELECT /*%expand*/* FROM item WHERE id = /* arg0 */'hoge'

@@ -16,4 +16,5 @@ public interface ItemDao {
     @Insert fun Insert(item: Item): Int
     @Update fun update(item: Item): Int
     @Delete fun delete(item: Item): Int
+    @Delete fun delete(id: ItemId): Int
 }

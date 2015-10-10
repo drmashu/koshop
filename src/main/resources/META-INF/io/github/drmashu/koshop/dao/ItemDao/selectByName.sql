@@ -1,0 +1,1 @@
+SELECT /*%expand*/* FROM item WHERE name like /* arg0 */'hoge'

@@ -1,1 +1,0 @@
-SELECT /*%expand*/* FROM item WHERE name like /* name */'hoge'

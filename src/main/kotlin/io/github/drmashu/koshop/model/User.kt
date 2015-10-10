@@ -13,7 +13,14 @@ public class Customer(var account: Account) : User() {
     val cart: MutableList<Items> = emptyList<Items>() as MutableList<Items>
 }
 @Entity
-public class Account(@Id var id: UID, var name: Name, var password: Password, var postalCode: PostalCode, var address: Address, var phone: Phone)
+public class Account {
+    @Id public var id: UID? = null
+    public var name: Name? = null
+    public var password: Password? = null
+    public var postalCode: PostalCode? = null
+    public var address: Address? = null
+    public var phone: Phone? = null
+}
 @Domain(valueType = String::class)
 public class UID(val value:String)
 @Domain(valueType = String::class)
