@@ -18,10 +18,6 @@ public class Items {
     @Id public var uid: UID? = null
     @Id public var id: ItemId? = null
     public var count: Int? = null
-    @Transient public val Item: Item?
-        get() {
-             return null
-        }
 }
 @Domain(valueType = String::class)
 public class ItemId(val value:String)

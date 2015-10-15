@@ -10,9 +10,8 @@ import org.seasar.doma.*
 @Dao
 interface AccountDao {
     @Select fun selectAll(): List<Account>
-    @Select fun selectById(id: UID): Account
-    @Insert fun Insert(account: Account): Int
+    @Select fun selectById(uid: UID): Account
+    @Insert fun insert(account: Account): Int
     @Update fun update(account: Account): Int
     @Delete fun delete(account: Account): Int
-    @Delete fun delete(id: UID): Int
 }

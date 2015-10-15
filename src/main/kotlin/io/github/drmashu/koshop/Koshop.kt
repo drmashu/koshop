@@ -2,22 +2,23 @@ package io.github.drmashu.koshop
 
 import io.github.drmashu.buri.Buri
 import io.github.drmashu.buri.BuriRunner
-import io.github.drmashu.dikon.Factory
-import io.github.drmashu.dikon.Holder
-import io.github.drmashu.dikon.Injection
+import io.github.drmashu.dikon.*
 import io.github.drmashu.koshop.action.SearchAction
-import io.github.drmashu.koshop.dao.*
+import org.apache.logging.log4j.LogManager
 import org.seasar.doma.jdbc.Config
 import org.seasar.doma.jdbc.dialect.Dialect
 import org.seasar.doma.jdbc.dialect.H2Dialect
 import org.seasar.doma.jdbc.tx.LocalTransactionDataSource
 import javax.sql.DataSource
 
+val mainLogger = LogManager.getLogger("KoshopMain")
 /**
  * Created by drmashu on 2015/10/07.
  */
 fun main(args: Array<String>){
+    mainLogger.entry()
     BuriRunner(Koshop()).start(8080)
+    mainLogger.exit()
 }
 
 class Koshop() : Buri() {
@@ -32,7 +33,8 @@ class Koshop() : Buri() {
                     override fun getDataSource(): DataSource? = datasource
                     override fun getDialect(): Dialect? = diarect
                 }),
-//                "itemDao" to Injection(ItemDaoImpl::class),
+                "itemDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemDaoImpl"), "config"),
+                "accountDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.AccountDaoImpl"), "config"),
                 "title" to Holder("Koshop"),
                 "/" to Injection(pages.index::class),
                 "/item/(?<id>[A-Za-z0-9]+)" to Injection(pages.item::class),
