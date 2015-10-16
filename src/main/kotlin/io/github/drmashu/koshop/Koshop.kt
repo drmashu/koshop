@@ -29,12 +29,12 @@ class Koshop() : Buri() {
     val diarect = H2Dialect()
     override val config: Map<String, Factory<*>>
         get() = mapOf(
-                "config" to Holder(object: Config {
+                "doma_config" to Holder(object: Config {
                     override fun getDataSource(): DataSource? = datasource
                     override fun getDialect(): Dialect? = diarect
                 }),
-                "itemDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemDaoImpl"), "config"),
-                "accountDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.AccountDaoImpl"), "config"),
+                "itemDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemDaoImpl")),
+                "accountDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.AccountDaoImpl")),
                 "title" to Holder("Koshop"),
                 "/" to Injection(pages.index::class),
                 "/item/(?<id>[A-Za-z0-9]+)" to Injection(pages.item::class),
