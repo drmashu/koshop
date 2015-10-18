@@ -1,0 +1,21 @@
+<div class="row">
+  <hr>
+  <div class="large-2 columns">
+    {{#item.images}}
+    <img src="/item_img/{{itemId}}/{{index}}">
+    <br>
+    {{/item.images}}
+  </div>
+  <div class="large-5 columns">
+    <img src="/item_img/{{id}}/0">
+  </div>
+  <div class="large-5 columns">
+    <h4>{{name}}</h4>
+    <p>{{description}}</p>
+    <div class="panel">
+      <h5>Header</h5>
+      <h6 class="subheader">Praesent placerat dui tincidunt elit suscipit sed.</h6>
+      <a href="#" class="small button">Add to Cart</a>
+    </div>
+  </div>
+</div>

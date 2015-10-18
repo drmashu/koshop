@@ -5,6 +5,7 @@ import io.github.drmashu.koshop.model.Item
 import io.github.drmashu.koshop.model.ItemId
 import io.github.drmashu.koshop.model.ItemName
 import org.seasar.doma.*
+import org.seasar.doma.jdbc.SelectOptions
 
 /**
  * Created by 貴博 on 2015/09/29.

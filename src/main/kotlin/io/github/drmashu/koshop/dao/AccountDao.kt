@@ -10,7 +10,7 @@ import org.seasar.doma.*
  */
 @Dao
 @InjectDomaConfig
-interface AccountDao {
+public interface AccountDao {
     @Select fun selectAll(): List<Account>
     @Select fun selectById(uid: UID): Account
     @Insert fun insert(account: Account): Int

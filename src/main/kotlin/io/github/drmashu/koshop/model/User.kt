@@ -3,6 +3,7 @@ package io.github.drmashu.koshop.model
 import org.seasar.doma.Domain
 import org.seasar.doma.Entity
 import org.seasar.doma.Id
+import org.seasar.doma.jdbc.entity.NamingType
 
 /**
  * Created by 貴博 on 2015/09/26.
@@ -10,9 +11,9 @@ import org.seasar.doma.Id
 public open class User()
 public class Manager(): User()
 public class Customer(var account: Account) : User() {
-    val cart: MutableList<Items> = emptyList<Items>() as MutableList<Items>
+    val cart: MutableList<Items>? = null
 }
-@Entity
+@Entity(naming = NamingType.SNAKE_UPPER_CASE)
 public class Account {
     @Id public var id: UID? = null
     public var name: Name? = null

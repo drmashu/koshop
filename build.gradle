@@ -59,7 +59,7 @@ sourceSets {
 
 dependencies {
     compile group: 'io.github.drmashu', name: 'buri', version:'0.1-SNAPSHOT'
-    compile group: 'com.h2database', name:'h2', version:'1.4.189'
+    compile group: 'com.h2database', name:'h2', version:'1.4.+'
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version:kotlinVersion
     compile group: 'org.seasar.doma', name: 'doma', version:domaVersion
     kapt group: 'org.seasar.doma', name: 'doma', version:domaVersion
