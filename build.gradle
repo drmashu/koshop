@@ -1,12 +1,17 @@
 buildscript {
     ext {
-        kotlinVersion = '0.14.449'
+        kotlinVersion = '0.1-SNAPSHOT'
         domaVersion = '2.4.1'
         buriteriDestDir = 'src/gen/kotlin'
         buriteriSrcDir = 'src/main/buriteri'
         templatePackage = 'pages'
     }
-    repositories.jcenter()
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+        maven { url "http://oss.sonatype.org/content/repositories/snapshots" }
+    }
     dependencies {
         classpath group:'org.jetbrains.kotlin', name:'kotlin-gradle-plugin', version:kotlinVersion
     }
@@ -55,6 +60,7 @@ compileKotlin.destinationDir = compileJava.destinationDir
 
 sourceSets {
     main.kotlin.srcDirs += buriteriDestDir
+    main.java.srcDirs += 'src/main/kotlin'
 }
 
 dependencies {
