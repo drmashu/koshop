@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '0.14.449'
+        kotlinVersion = '0.1-SNAPSHOT'
         domaVersion = '2.4.1'
         buriteriDestDir = 'src/gen/kotlin'
         buriteriSrcDir = 'src/main/buriteri'
@@ -9,6 +9,11 @@ buildscript {
     repositories.jcenter()
     dependencies {
         classpath group:'org.jetbrains.kotlin', name:'kotlin-gradle-plugin', version:kotlinVersion
+    }
+    repositories {
+        maven {
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
     }
 }
 
@@ -33,6 +38,9 @@ repositories {
     mavenLocal()
     jcenter()
     maven { url "http://oss.sonatype.org/content/repositories/snapshots" }
+    maven {
+        url 'http://oss.sonatype.org/content/repositories/snapshots'
+    }
 }
 
 configurations {
@@ -55,6 +63,8 @@ compileKotlin.destinationDir = compileJava.destinationDir
 
 sourceSets {
     main.kotlin.srcDirs += buriteriDestDir
+    main.java.srcDirs += 'src/main/kotlin'
+//    main.java.srcDirs += 'build/generated/source/kapt/main'
 }
 
 dependencies {

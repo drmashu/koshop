@@ -3,8 +3,6 @@ package io.github.drmashu.koshop.action
 import io.github.drmashu.buri.HtmlAction
 import io.github.drmashu.koshop.dao.ItemDao
 import io.github.drmashu.koshop.dao.ItemImageDao
-import io.github.drmashu.koshop.model.Item
-import io.github.drmashu.koshop.model.ItemId
 import org.apache.logging.log4j.LogManager
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -25,7 +23,7 @@ public open class ItemAction(request: HttpServletRequest, response: HttpServletR
      */
     override fun get() {
         logger.entry()
-        val itemId = ItemId(id)
+        val itemId = id
         val item = itemDao.selectById(itemId)
         item.images = itemImgDao.selectByItemIdWithoutBlob(itemId)
 

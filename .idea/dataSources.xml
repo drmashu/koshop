@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2143219789">
+  <component name="DataSourceManagerImpl" format="xml" hash="2880503567">
     <data-source source="LOCAL" name="H2 - koshop" uuid="0f0bc09d-2152-4d6e-8fe7-7d5b61f1994d">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
       <jdbc-url>jdbc:h2:$PROJECT_DIR$/webapp/db/koshop</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="H2 - koshop.mv.db" uuid="5464fd62-f1fa-431f-94f6-8e5a67d8e605">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/../koshop\db\koshop.mv.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="H2 - koshop [2]" uuid="f6854180-4665-48d2-867c-b0d06e8947b5">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:$PROJECT_DIR$/db/koshop</jdbc-url>
     </data-source>
   </component>
 </project>
