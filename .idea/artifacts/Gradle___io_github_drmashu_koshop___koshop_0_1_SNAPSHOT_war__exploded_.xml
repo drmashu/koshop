@@ -37,9 +37,14 @@
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.3" />
           <element id="library" level="project" name="Gradle: com.h2database:h2:1.4.190" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-kotlin:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.4.1" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.1" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: com.warrenstrange:googleauth:0.5.0" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1038" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.0-beta-1038" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.0.0-beta-1038" />
         </element>
       </element>
       <element id="directory" name="META-INF">

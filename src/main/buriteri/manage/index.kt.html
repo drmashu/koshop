@@ -29,14 +29,19 @@
 
       $.ajax({
         type: "GET",
-        url: "/mst/item_input.mustache",
+        url: "/manage/login",
         success: function (template) {
-          var rendered = Mustache.render(template, {id: "0",name: "", description: "", price: 0});
-//          var script = $(rendered).find("script").text();
-          $('#target_body').html(rendered);
-//          eval(script);
+          $('#target_body').html(template);
         }
       });
+//      $.ajax({
+//        type: "GET",
+//        url: "/mst/manage/item_input.mustache",
+//        success: function (template) {
+//          var rendered = Mustache.render(template, {id: "0",name: "", description: "", price: 0});
+//          $('#target_body').html(rendered);
+//        }
+//      });
     });
   </script>
 </head>

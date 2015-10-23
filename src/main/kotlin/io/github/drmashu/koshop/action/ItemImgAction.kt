@@ -3,13 +3,14 @@ package io.github.drmashu.koshop.action
 import io.github.drmashu.buri.HtmlAction
 import io.github.drmashu.koshop.dao.ItemImageDao
 import org.apache.logging.log4j.LogManager
+import javax.servlet.ServletContext
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 /**
  * Created by drmashu on 2015/10/17.
  */
-public open class ItemImgAction(request: HttpServletRequest, response: HttpServletResponse, val itemImgDao: ItemImageDao, val id: String, val index:Int): HtmlAction(request, response) {
+public open class ItemImgAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, val itemImgDao: ItemImageDao, val id: String, val index:Int): HtmlAction(context, request, response) {
     companion object{
         val logger = LogManager.getLogger(ItemImgAction::class.java)
     }

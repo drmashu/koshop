@@ -33,10 +33,10 @@
           description: form.find("[name=description]").val(),
           price: form.find("[name=price]").val()
         };
-//        formData.append("item", JSON.stringify(item));
-//        $.map( $(":file").get(0).files, function(image, idx){
-//          formData.append("images["+idx+"]", image);
-//        })
+        formData.append("item", JSON.stringify(item));
+        $.map( $(":file").get(0).files, function(image, idx){
+          formData.append("images["+idx+"]", image);
+        })
         $.ajax({
           async: true,
 //          xhr : function(){
@@ -54,10 +54,10 @@
 //          },
           url: "/manage/item/"+item.id,
           type: "post",
-          data: {item: JSON.stringify(item)}
-//          data: formData,
-//          contentType: "multipart/form-data",
-//          processData: false
+//          data: {item: JSON.stringify(item)}
+          data: formData,
+          contentType: "multipart/form-data",
+          processData: false
         }).done(function( msg ) {
           console.log( msg );
           $("#output").append(msg);

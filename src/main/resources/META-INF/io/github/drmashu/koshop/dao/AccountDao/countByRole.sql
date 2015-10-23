@@ -1,0 +1,1 @@
+select count(*) from account where `role` = /*arg0*/0

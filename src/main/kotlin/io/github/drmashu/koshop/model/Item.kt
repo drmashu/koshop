@@ -1,7 +1,6 @@
 package io.github.drmashu.koshop.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import org.seasar.doma.Domain
 import org.seasar.doma.Entity
 import org.seasar.doma.Transient
 import org.seasar.doma.Id
@@ -19,7 +18,7 @@ public class Item {
     public var price: BigDecimal? = null
     public var description: String? = null
     @Transient
-    public var images: List<ItemImage>? = null
+    public var images: MutableList<ItemImage>? = null
 }
 
 /**
@@ -45,9 +44,3 @@ public class ItemImage {
     public var image: Blob? = null
     public var contentType: String? = null
 }
-//@Domain(valueType = String::class)
-//public class ItemId(val value:String)
-//@Domain(valueType = String::class)
-//public class ItemName(val value:String)
-//@Domain(valueType = String::class)
-//public class Description(val value:String)

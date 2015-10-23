@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '0.1-SNAPSHOT'
+        kotlinVersion = '1.0.0-beta-1038'
         domaVersion = '2.4.1'
         buriteriDestDir = 'src/gen/kotlin'
         buriteriSrcDir = 'src/main/buriteri'
@@ -75,4 +75,5 @@ dependencies {
     kapt group: 'org.seasar.doma', name: 'doma', version:domaVersion
     testCompile group: 'junit', name: 'junit', version: '4.12'
     buriteri group: 'io.github.drmashu', name: 'buriteri', version:'0.1-SNAPSHOT'
+    compile 'com.warrenstrange:googleauth:0.5.0'
 }
