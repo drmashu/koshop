@@ -16,6 +16,7 @@ import org.seasar.doma.jdbc.tx.TransactionManager
 import javax.servlet.ServletContext
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
+import javax.servlet.http.Part
 import javax.sql.rowset.serial.SerialBlob
 import kotlin.text.Regex
 
@@ -56,20 +57,7 @@ public class ManageItemAction(context: ServletContext, request: HttpServletReque
             val item = getItem()
             item.id = id
             itemDao.insert(item)
-            for (part in request.parts) {
-                logger.trace(part.name)
-                val itemImg = ItemImage()
-                itemImg.itemId = item.id
-                val matched = Regex("images\\[([0-9]+)]").matchEntire(part.name)
-                if (matched != null) {
-                    itemImg.index = matched.groups[1]!!.value.toInt() as Byte
-                    itemImg.contentType = part.contentType
-                    val buf = part.inputStream.readBytes()
-                    val image = SerialBlob(buf)
-                    itemImg.image = image
-                    itemImageDao.insert(itemImg)
-                }
-            }
+            insertItemImages(item, request.parts)
             responseByJson(item)
         }
         logger.exit()
@@ -99,19 +87,31 @@ public class ManageItemAction(context: ServletContext, request: HttpServletReque
         transactionManager.required {
             val item = getItem()
             itemDao.update(item)
-            for (part in request.parts) {
-                val itemImg = ItemImage()
-                itemImg.itemId = item.id
-                itemImg.index = Regex("images\\[([0-9]+)]").match(part.name)!!.groups[1]!!.value.toInt() as Byte
-                itemImg.contentType = part.contentType
-                val buf = part.inputStream.readBytes()
-                val image = SerialBlob(buf)
-                itemImg.image = image
-                itemImageDao.insert(itemImg)
-            }
+            insertItemImages(item, request.parts)
             responseByJson(item)
         }
         logger.exit()
+    }
+
+    private fun insertItemImages(item: Item, parts: MutableCollection<Part>) {
+        for (part in parts) {
+            logger.trace(part.name)
+            insertItemImage(item, part)
+        }
+    }
+
+    private fun insertItemImage(item: Item, part: Part) {
+        val itemImg = ItemImage()
+        itemImg.itemId = item.id
+        val matched = Regex("images\\[([0-9]+)\\]").matchEntire(part.name)
+        if (matched != null) {
+            itemImg.index = matched.groups[1]!!.value.toInt() as Byte
+            itemImg.contentType = part.contentType
+            val buf = part.inputStream.readBytes()
+            val image = SerialBlob(buf)
+            itemImg.image = image
+            itemImageDao.insert(itemImg)
+        }
     }
 
     /**

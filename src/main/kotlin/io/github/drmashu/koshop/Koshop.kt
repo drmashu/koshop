@@ -2,11 +2,13 @@ package io.github.drmashu.koshop
 
 import io.github.drmashu.buri.Buri
 import io.github.drmashu.buri.BuriRunner
+import io.github.drmashu.buri.StaticFileHolder
 import io.github.drmashu.dikon.*
 import io.github.drmashu.koshop.action.ItemAction
 import io.github.drmashu.koshop.action.ItemImgAction
 import io.github.drmashu.koshop.action.manage.ManageItemAction
 import io.github.drmashu.koshop.action.SearchAction
+import io.github.drmashu.koshop.action.manage.ManageAccountAction
 import io.github.drmashu.koshop.action.manage.ManageLoginAction
 import org.apache.logging.log4j.LogManager
 import org.seasar.doma.jdbc.Config
@@ -25,11 +27,11 @@ val mainLogger = LogManager.getLogger("KoshopMain")
  */
 fun main(args: Array<String>){
     mainLogger.entry()
-    BuriRunner(Koshop).start(8080)
+    BuriRunner(Koshop()).start(8080)
     mainLogger.exit()
 }
 
-object Koshop : Buri() {
+public class Koshop() : Buri() {
     val datasource = LocalTransactionDataSource("jdbc:h2:file:./db/koshop", "sa", "")
     val diarect = H2Dialect()
     val jdbcLogger = UtilLoggingJdbcLogger(Level.FINE)
@@ -90,12 +92,12 @@ object Koshop : Buri() {
                     "itemImageDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemImageDaoImpl")),
                     "accountDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.AccountDaoImpl")),
                     "title" to Holder("Koshop"),
-                    "/" to Injection(pages.index::class),
+                    "/" to StaticFileHolder("/WEB-INF/html/index.html"),
                     "/search/(?<keyword>.*)" to Injection(SearchAction::class),
-                    "/model/" to Injection(pages.index::class),
-                    "/manage/item/(?<id>[A-Za-z0-9]+)" to Injection(ManageItemAction::class),
-                    "/manage/" to Injection(pages.manage.index::class),
+                    "/manage/" to StaticFileHolder("/WEB-INF/html/manage/index.html"),
                     "/manage/login" to Injection(ManageLoginAction::class),
+                    "/manage/account/(?<id>[0-9]+)" to Injection(ManageAccountAction::class),
+                    "/manage/item/(?<id>[A-Za-z0-9]{20})" to Injection(ManageItemAction::class),
                     "/itemImg/(?<id>[A-Za-z0-9]+)/(?<index>[0-9]+)" to Injection(ItemImgAction::class),
                     "/item/(?<id>[A-Za-z0-9]+)" to Injection(ItemAction::class)
             )

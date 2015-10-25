@@ -3,6 +3,7 @@ package io.github.drmashu.koshop.action.manage
 import io.github.drmashu.buri.HtmlAction
 import io.github.drmashu.dikon.inject
 import io.github.drmashu.koshop.dao.AccountDao
+import io.github.drmashu.koshop.model.Account
 import io.github.drmashu.koshop.model.Role
 import org.seasar.doma.jdbc.Config
 import javax.servlet.ServletContext
@@ -16,9 +17,15 @@ class ManageLoginAction(context: ServletContext, request: HttpServletRequest, re
     override fun get() {
         domaConfig.transactionManager.required {
             if (accountDao.countByRole(Role.ADMINISTRATOR) == 0) {
-                responseFromFile("./mst/manage/input_account.mustache")
+                val account = Account()
+                account.id = 0
+                account.name = ""
+                account.password = ""
+                account.gauth = false
+                account.role = Role.ADMINISTRATOR
+                responseFromTemplate("/WEB-INF/mst/manage/input_account.mustache", account)
             } else {
-                responseFromFile("./mst/manage/login.mustache")
+                responseFromFile("/WEB-INF/mst/manage/login.mustache")
             }
         }
     }

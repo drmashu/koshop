@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse
 /**
  * Created by drmashu on 2015/10/24.
  */
-class ManageAccountActionManageLoginAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, @inject("doma_config") val domaConfig: Config, val accountDao: AccountDao, val id: Int?): HtmlAction(context, request, response) {
+class ManageAccountAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, @inject("doma_config") val domaConfig: Config, val accountDao: AccountDao, val id: Int?): HtmlAction(context, request, response) {
     override fun get() {
         domaConfig.transactionManager.required {
-            responseByJson(accountDao.selectById(id))
+            responseByJson(accountDao.selectById(id?:0))
         }
     }
 

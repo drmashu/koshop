@@ -2,15 +2,15 @@
   <form id="item" name="item" style="display: block;">
     <div class="large-8 columns">
       <label>メールアドレス:</label>
-      <input name="mail" type="email" value="{{mail}}">
+      <input name="mail" type="email" value="{{mail}}" required>
     </div>
     <div class="large-8 columns">
       <label>パスワード:</label>
-      <input type="password" name="password" value="{{description}}"></input>
+      <input type="password" name="password" required>
     </div>
     <div class="large-8 columns">
       <label>名前:</label>
-      <input name="name" type="text" value="{{name}}">
+      <input name="name" type="text" value="{{name}}" required>
     </div>
     <div class="large-8 columns">
       <input id="gauth" name="gauth" type="checkbox" value="true"><label for="gauth">二段階認証</label>
@@ -46,7 +46,7 @@
           contentType: "multipart/form-data",
           processData: false,
           success: function(doc) {
-            $
+
           }
         });
       });
