@@ -23,9 +23,9 @@ class ManageLoginAction(context: ServletContext, request: HttpServletRequest, re
                 account.password = ""
                 account.gauth = false
                 account.role = Role.ADMINISTRATOR
-                responseFromTemplate("/WEB-INF/mst/manage/input_account.mustache", account)
+                responseFromTemplate("/manage/input_account", arrayOf(account))
             } else {
-                responseFromFile("/WEB-INF/mst/manage/login.mustache")
+                responseFromFile("/manage/login")
             }
         }
     }

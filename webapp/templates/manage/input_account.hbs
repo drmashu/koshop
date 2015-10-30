@@ -13,7 +13,7 @@
       <input name="name" type="text" value="{{name}}" required>
     </div>
     <div class="large-8 columns">
-      <input id="gauth" name="gauth" type="checkbox" value="true"><label for="gauth">二段階認証</label>
+      <input id="gauth" name="gauth" type="checkbox" value="true"{{#gauth}} checked{{/gauth}}><label for="gauth">二段階認証</label>
     </div>
     <div class="large-8 columns">
       <input name="id" type="hidden" value="{{id}}">
@@ -34,10 +34,7 @@
           role: 0,
           gauth: form.find("[name=gauth]:checked").length > 0 ? true:false
         };
-        formData.append("item", JSON.stringify(account));
-        $.map( $(":file").get(0).files, function(image, idx){
-          formData.append("images["+idx+"]", image);
-        })
+        formData.append("account", JSON.stringify(account));
         $.ajax({
           async: true,
           url: "/manage/account/" + account.id,
@@ -46,7 +43,7 @@
           contentType: "multipart/form-data",
           processData: false,
           success: function(doc) {
-
+            $('#target_body').html(doc);
           }
         });
       });

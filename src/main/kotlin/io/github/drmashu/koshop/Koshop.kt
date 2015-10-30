@@ -3,6 +3,7 @@ package io.github.drmashu.koshop
 import io.github.drmashu.buri.Buri
 import io.github.drmashu.buri.BuriRunner
 import io.github.drmashu.buri.StaticFileHolder
+import io.github.drmashu.buri.TemplateHolder
 import io.github.drmashu.dikon.*
 import io.github.drmashu.koshop.action.ItemAction
 import io.github.drmashu.koshop.action.ItemImgAction
@@ -32,7 +33,7 @@ fun main(args: Array<String>){
 }
 
 public class Koshop() : Buri() {
-    val datasource = LocalTransactionDataSource("jdbc:h2:file:./db/koshop", "sa", "")
+    val datasource = LocalTransactionDataSource("jdbc:h2:file:./db/koshop;CIPHER=AES", "sa", "password password")
     val diarect = H2Dialect()
     val jdbcLogger = UtilLoggingJdbcLogger(Level.FINE)
     val transactionManager: LocalTransactionManager = LocalTransactionManager(
@@ -47,6 +48,11 @@ public class Koshop() : Buri() {
           name        NVARCHAR2(100) NOT NULL,
           password    NVARCHAR2(20),
           role        INT
+        );
+        """)
+        conn.createStatement().execute("""CREATE TABLE IF NOT EXISTS totp (
+          id          INT NOT NULL PRIMARY KEY,
+          key         NVARCHAR2(1024) NOT NULL
         );
         """)
         conn.createStatement().execute("""CREATE TABLE IF NOT EXISTS customer (
@@ -91,10 +97,15 @@ public class Koshop() : Buri() {
                     "itemsDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemsDaoImpl")),
                     "itemImageDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.ItemImageDaoImpl")),
                     "accountDao" to Injection(getKClassForName("io.github.drmashu.koshop.dao.AccountDaoImpl")),
-                    "title" to Holder("Koshop"),
-                    "/" to StaticFileHolder("/WEB-INF/html/index.html"),
+                    "koshop_config" to Holder(KoshopConfig(
+                            title = "KoshopSample",
+                            description = """
+                            Koshopのサンプルです。
+                            """
+                    )),
+                    "/" to StaticFileHolder("/index"),
                     "/search/(?<keyword>.*)" to Injection(SearchAction::class),
-                    "/manage/" to StaticFileHolder("/WEB-INF/html/manage/index.html"),
+                    "/manage/" to TemplateHolder("/manage/index", arrayOf("koshop_config")),
                     "/manage/login" to Injection(ManageLoginAction::class),
                     "/manage/account/(?<id>[0-9]+)" to Injection(ManageAccountAction::class),
                     "/manage/item/(?<id>[A-Za-z0-9]{20})" to Injection(ManageItemAction::class),
@@ -103,3 +114,4 @@ public class Koshop() : Buri() {
             )
         }
 }
+class KoshopConfig(val title: String, val description: String)

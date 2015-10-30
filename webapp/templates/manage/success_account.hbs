@@ -1,0 +1,41 @@
+<div class="row">
+  <form id="item" name="item" style="display: block;">
+    <div class="large-8 columns">
+      <label>メールアドレス:</label>
+      {{mail}}
+    </div>
+    <div class="large-8 columns">
+      <label>パスワード:</label>
+      ********
+    </div>
+    <div class="large-8 columns">
+      <label>名前:</label>
+      {{name}}
+    </div>
+    <div class="large-8 columns">
+      二段階認証
+      <img src="{{qrcode}}">
+    </div>
+    <div class="large-8 columns">
+      <input id="gauth" name="gauth" type="checkbox" value="true"{{#gauth}} checked{{/gauth}}><label for="gauth">二段階認証</label>
+    </div>
+    <div class="large-8 columns">
+      <a id="confirm" href="#" class="small button">確認</a>
+    </div>
+  </form>
+  <script type="application/javascript">
+    $(function() {
+      $("#confirm").off("click");
+      $("#confirm").on("click", function(){
+        $.ajax({
+          async: true,
+          url: "/manage/",
+          type: "get",
+          success: function(doc) {
+            $('#target_body').html(doc);
+          }
+        });
+      });
+    });
+  </script>
+</div>

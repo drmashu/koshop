@@ -10,12 +10,19 @@ import org.seasar.doma.jdbc.entity.NamingType
 @Entity(naming = NamingType.SNAKE_UPPER_CASE)
 public class Account() {
     @Id public var id: Int? = null
+    public var mail: String? = null
     public var name: String? = null
     public var password: String? = null
     public var role: Role? = null
     public var gauth: Boolean? = null
 }
 
+@Entity(naming = NamingType.SNAKE_UPPER_CASE)
+public class Totp() {
+    @Id public var id: Int? = null
+    public var key: String? = null
+
+}
 interface UserBase {
     @Id public var id: Int?
     public var postalCode: String?
