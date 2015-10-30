@@ -38,7 +38,7 @@
         $.ajax({
           async: true,
           url: "/manage/account/" + account.id,
-          type: "post",
+          type: account.id == 0 ? "post" : put,
           data: formData,
           contentType: "multipart/form-data",
           processData: false,

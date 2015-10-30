@@ -18,44 +18,78 @@ import javax.servlet.http.HttpServletResponse
  */
 class ManageAccountAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, @inject("doma_config") val domaConfig: Config, val accountDao: AccountDao, val id: Int?): HtmlAction(context, request, response) {
     override fun get() {
+        logger.entry()
         domaConfig.transactionManager.required {
-            responseByJson(accountDao.selectById(id?:0))
+            val account = accountDao.selectById(id?:0)
+            responseFromTemplate("/manage/success_account", arrayOf(object {
+                val id = account.id
+                val name = account.name
+                val mail = account.mail
+                val gauth = account.gauth
+
+                val scratch = null
+                val qrcode = null
+            }))
         }
+        logger.exit()
     }
 
     override fun post() {
+        logger.entry()
         domaConfig.transactionManager.required {
             val account = getAccount()
             account.id = accountDao.getNextId()
             accountDao.insert(account)
 
+            var scratch:IntArray? = null
+            var qrcode:String? = null
             if (account.gauth?:false) {
                 val gAuth = GoogleAuthenticator()
                 val key = gAuth.createCredentials(account.mail)
                 val totp = Totp()
                 totp.id = account.id
                 totp.key = key.key
-                responseFromTemplate("/mst/manage/success_account", arrayOf(object {
-                    val scratch = key.scratchCodes.toIntArray()
-                    val qrcode = GoogleAuthenticatorQRGenerator.getOtpAuthTotpURL("koshop", account.mail, key)
-                }))
-            } else {
-
+                scratch = key.scratchCodes.toIntArray()
+                qrcode = GoogleAuthenticatorQRGenerator.getOtpAuthTotpURL("koshop", account.mail, key)
             }
+            responseFromTemplate("/manage/success_account", arrayOf(object {
+                val id = account.id
+                val name = account.name
+                val mail = account.mail
+                val gauth = account.gauth
+
+                val scratch = scratch
+                val qrcode = qrcode
+            }))
         }
+        logger.exit()
     }
 
     override fun put() {
+        logger.entry()
         domaConfig.transactionManager.required {
-            accountDao.update(getAccount())
+            val account = getAccount()
+            accountDao.update(account)
+            responseFromTemplate("/manage/success_account", arrayOf(object {
+                val id = account.id
+                val name = account.name
+                val mail = account.mail
+                val gauth = account.gauth
+
+                val scratch = null
+                val qrcode = null
+            }))
         }
+        logger.exit()
     }
 
     override fun delete() {
+        logger.entry()
         domaConfig.transactionManager.required {
             val account = accountDao.selectById(id!!)
             accountDao.delete(account)
         }
+        logger.exit()
     }
 
     /**
