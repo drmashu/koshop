@@ -1,5 +1,8 @@
 <div class="row">
-  <form id="item" name="item" style="display: block;">
+  <form id="account" name="account" style="display: block;">
+      <div class="large-8 columns">
+        <h3>管理者アカウント登録</h3>
+      </div>
     <div class="large-8 columns">
       <label>メールアドレス:</label>
       <input name="mail" type="email" value="{{mail}}" required>
@@ -24,7 +27,7 @@
     $(function() {
       $("#registerAccount").off("click");
       $("#registerAccount").on("click", function(){
-        var form = $("#item");
+        var form = $("#account");
         var formData = new FormData();
         var account = {
           id: form.find("[name=id]").val(),
@@ -38,7 +41,7 @@
         $.ajax({
           async: true,
           url: "/manage/account/" + account.id,
-          type: account.id == 0 ? "post" : put,
+          type: account.id == 0 ? "post" : "put",
           data: formData,
           contentType: "multipart/form-data",
           processData: false,
