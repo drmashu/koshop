@@ -1,0 +1,19 @@
+<div class="row">
+  {{#each itemList}}
+    <div class="large-4 small-6 columns item" data-id="{{id}}">
+      <img src="/item_img/{{id}}/0">
+      <div class="panel">
+        <h5>{{name}}</h5>
+        <h6 class="subheader">\{{price}}</h6>
+      </div>
+    </div>
+  {{/each}}
+</div>
+<script type="application/javascript">
+  $(function() {
+    $(".item").on("click", function() {
+      var id = this.data("id");
+      koshop_get("/manage/account/" + id);
+    })
+  });
+</script>

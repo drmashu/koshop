@@ -1,0 +1,22 @@
+{{#partial "subtitle"}}アカウント管理{{/partial}}
+{{#partial "script"}}
+  <script type="application/javascript">
+    $(function() {
+      $(".account").on("click", function() {
+        var id = this.data("id");
+        koshop_get("/manage/account/" + id);
+      })
+    });
+  </script>
+{{/partial}}
+{{#partial "main_content"}}
+  <div class="row">
+    {{#each accountList}}
+      <div class="large-8 columns account" data-id="{{id}}">
+        <h5>{{name}}</h5>
+        <h6 class="subheader">{{mail}}</h6>
+      </div>
+    {{/each}}
+  </div>
+{{/partial}}
+{{> base}}

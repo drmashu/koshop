@@ -10,6 +10,7 @@
   <script src="/js/vendor/fastclick.js"></script>
   <script src="/js/foundation.min.js"></script>
   <script src="/js/handlebars.js"></script>
+  <script src="/js/koshop.js"></script>
   <script type="application/javascript">
     $(function(){
       $(document).foundation({
@@ -23,14 +24,6 @@
           custom_back_text: false,
           is_hover: false,
           mobile_show_parent_link: true
-        }
-      });
-
-      $.ajax({
-        type: "GET",
-        url: "/manage/login",
-        success: function (template) {
-          $('#target_body').html(template);
         }
       });
     });
@@ -54,79 +47,26 @@
             <ul class="right">
               <li class="divider"></li>
               <li class="has-dropdown">
-                <a href="#">Main Item 1</a>
+                <a href="#">管理メニュー</a>
                 <ul class="dropdown">
                   <li>
-                    <label>Section Name</label>
-                  </li>
-                  <li class="has-dropdown">
-                    <a href="#" class="">Has Dropdown, Level 1</a>
-                    <ul class="dropdown">
-                      <li>
-                        <a href="#">Dropdown Options</a>
-                      </li>
-                      <li>
-                        <a href="#">Dropdown Options</a>
-                      </li>
-                      <li>
-                        <a href="#">Level 2</a>
-                      </li>
-                      <li>
-                        <a href="#">Subdropdown Option</a>
-                      </li>
-                      <li>
-                        <a href="#">Subdropdown Option</a>
-                      </li>
-                      <li>
-                        <a href="#">Subdropdown Option</a>
-                      </li>
-                    </ul>
+                    <label>アカウント管理</label>
                   </li>
                   <li>
-                    <a href="#">Dropdown Option</a>
+                    <a href="/manage/account/0">アカウント登録</a>
                   </li>
                   <li>
-                    <a href="#">Dropdown Option</a>
+                    <a href="/manage/accounts">アカウントリスト</a>
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <label>Section Name</label>
+                    <label>商品管理</label>
                   </li>
                   <li>
-                    <a href="#">Dropdown Option</a>
+                    <a href="/manage/item/0">商品登録</a>
                   </li>
                   <li>
-                    <a href="#">Dropdown Option</a>
-                  </li>
-                  <li>
-                    <a href="#">Dropdown Option</a>
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#">See all →</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#">Main Item 2</a>
-              </li>
-              <li class="divider"></li>
-              <li class="has-dropdown">
-                <a href="#">Main Item 3</a>
-                <ul class="dropdown">
-                  <li>
-                    <a href="#">Dropdown Option</a>
-                  </li>
-                  <li>
-                    <a href="#">Dropdown Option</a>
-                  </li>
-                  <li>
-                    <a href="#">Dropdown Option</a>
-                  </li>
-                  <li class="divider"></li>
-                  <li>
-                    <a href="#">See all →</a>
+                    <a href="/manage/items">商品リスト</a>
                   </li>
                 </ul>
               </li>
@@ -150,6 +90,7 @@
       </div>
       <div class="large-8 columns">
         <div class="row" id="target_body">
+          {{body}}
         </div>
         <div class="row">
           <div class="large-12 columns">

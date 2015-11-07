@@ -1,15 +1,9 @@
 package io.github.drmashu.koshop.dao
 
-import decode63
-import encode63
 import io.github.drmashu.koshop.doma.InjectDomaConfig
 import io.github.drmashu.koshop.model.Account
 import io.github.drmashu.koshop.model.Role
 import org.seasar.doma.*
-import org.seasar.doma.jdbc.Config
-import org.seasar.doma.jdbc.builder.SelectBuilder
-import java.math.BigInteger
-import kotlin.math.plus
 
 /**
  * Created by drmashu on 2015/10/08.

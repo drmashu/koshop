@@ -2,9 +2,9 @@ package io.github.drmashu.koshop.action.manage
 
 import com.warrenstrange.googleauth.GoogleAuthenticator
 import com.warrenstrange.googleauth.GoogleAuthenticatorQRGenerator
-import io.github.drmashu.buri.HtmlAction
 import io.github.drmashu.dikon.inject
 import io.github.drmashu.koshop.dao.AccountDao
+import io.github.drmashu.koshop.dao.TotpDao
 import io.github.drmashu.koshop.dao.getNextId
 import io.github.drmashu.koshop.model.Account
 import io.github.drmashu.koshop.model.Totp
@@ -16,12 +16,19 @@ import javax.servlet.http.HttpServletResponse
 /**
  * Created by drmashu on 2015/10/24.
  */
-class ManageAccountAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, @inject("doma_config") val domaConfig: Config, val accountDao: AccountDao, val id: Int?): HtmlAction(context, request, response) {
+class ManageAccountAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse, @inject("doma_config") val domaConfig: Config, val accountDao: AccountDao, val totpDao: TotpDao, val id: Int?): BaseAction(context, request, response) {
+    val defaultAccount = Account()
+    init {
+        defaultAccount.id = 0
+        defaultAccount.name = ""
+        defaultAccount.mail = ""
+        defaultAccount.gauth = true
+    }
     override fun get() {
         logger.entry()
         domaConfig.transactionManager.required {
-            val account = accountDao.selectById(id?:0)
-            responseFromTemplate("/manage/success_account", arrayOf(object {
+            val account = if(id == null || id == 0) defaultAccount else accountDao.selectById(id)
+            responseFromTemplate("/manage/account", arrayOf(object {
                 val id = account.id
                 val name = account.name
                 val mail = account.mail
@@ -51,8 +58,9 @@ class ManageAccountAction(context: ServletContext, request: HttpServletRequest, 
                 totp.key = key.key
                 scratch = key.scratchCodes.toIntArray()
                 qrcode = GoogleAuthenticatorQRGenerator.getOtpAuthTotpURL("koshop", account.mail, key)
+                totpDao.insert(totp)
             }
-            responseFromTemplate("/manage/success_account", arrayOf(object {
+            responseFromTemplate("/manage/account_confirm", arrayOf(object {
                 val id = account.id
                 val name = account.name
                 val mail = account.mail
@@ -70,7 +78,7 @@ class ManageAccountAction(context: ServletContext, request: HttpServletRequest, 
         domaConfig.transactionManager.required {
             val account = getAccount()
             accountDao.update(account)
-            responseFromTemplate("/manage/success_account", arrayOf(object {
+            responseFromTemplate("/manage/account_confirm", arrayOf(object {
                 val id = account.id
                 val name = account.name
                 val mail = account.mail

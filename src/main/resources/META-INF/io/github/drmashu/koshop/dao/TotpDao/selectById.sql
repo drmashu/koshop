@@ -1,0 +1,1 @@
+SELECT /*%expand*/* FROM totp WHERE id = /* arg0 */'hoge'
