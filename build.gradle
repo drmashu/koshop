@@ -40,10 +40,10 @@ repositories {
     maven { url "http://oss.sonatype.org/content/repositories/snapshots" }
 }
 
+/*
 configurations {
     buriteri
 }
-
 task precompileBuriteri << {
     ant.taskdef(name: 'buriteri',
             classname: 'io.github.drmashu.buri.template.BuriTeriTask',
@@ -52,14 +52,15 @@ task precompileBuriteri << {
             destdir: buriteriDestDir,
             packagename: templatePackage)
 }
+*/
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-compileKotlin.dependsOn precompileBuriteri
+//compileKotlin.dependsOn precompileBuriteri
 compileJava.dependsOn processResources
 processResources.destinationDir = compileJava.destinationDir
 compileKotlin.destinationDir = compileJava.destinationDir
 
 sourceSets {
-    main.kotlin.srcDirs += buriteriDestDir
+//    main.kotlin.srcDirs += buriteriDestDir
     main.java.srcDirs += 'src/main/kotlin'
 //    main.java.srcDirs += 'build/generated/source/kapt/main'
 }
@@ -71,6 +72,7 @@ dependencies {
     compile group: 'org.seasar.doma', name: 'doma', version:domaVersion
     kapt group: 'org.seasar.doma', name: 'doma', version:domaVersion
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    buriteri group: 'io.github.drmashu', name: 'buriteri', version:'0.1-SNAPSHOT'
+//    buriteri group: 'io.github.drmashu', name: 'buriteri', version:'0.1-SNAPSHOT'
     compile 'com.warrenstrange:googleauth:0.5.0+'
+    compile 'net.glxn.qrgen:android:2.0+'
 }

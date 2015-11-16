@@ -13,6 +13,7 @@ import org.seasar.doma.*
 public interface AccountDao {
     @Select fun selectAll(): List<Account>
     @Select fun selectById(uid: Int): Account
+    @Select fun selectByMail(mail: String): Account?
     @Insert fun insert(account: Account): Int
     @Update fun update(account: Account): Int
     @Delete fun delete(account: Account): Int

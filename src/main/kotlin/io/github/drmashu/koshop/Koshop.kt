@@ -42,9 +42,10 @@ public class Koshop() : Buri() {
         conn.createStatement().execute("""
         CREATE TABLE IF NOT EXISTS account (
           id          INT NOT NULL PRIMARY KEY,
-          mail        NVARCHAR2(256) NOT NULL,
+          mail        NVARCHAR2(256) NOT NULL UNIQUE,
           name        NVARCHAR2(100) NOT NULL,
           password    NVARCHAR2(20),
+          gauth       BOOL,
           role        INT
         );
         """)

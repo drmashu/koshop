@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse
  * Created by drmashu on 2015/11/02.
  */
 open class BaseAction(context: ServletContext, request: HttpServletRequest, response: HttpServletResponse) : HtmlAction(context, request, response) {
-    override fun responseFromTemplate(fileName: String, objs: Array<Any>?) {
-        super.responseFromTemplate(fileName, objs)
+    override fun responseFromTemplate(fileName: String, obj: Any?) {
+        super.responseFromTemplate(fileName, obj)
     }
 }
