@@ -25,7 +25,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="koshop" target="1.5" />
+      <module name="koshop" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

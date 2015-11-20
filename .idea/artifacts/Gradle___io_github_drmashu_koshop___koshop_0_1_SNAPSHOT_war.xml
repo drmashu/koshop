@@ -12,48 +12,48 @@
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Gradle: org.seasar.doma:doma:2.4.1" />
-          <element id="library" level="project" name="Gradle: io.github.drmashu:buri:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.http2:http2-server:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: io.github.drmashu:dikon:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-server:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-servlet:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.http2:http2-common:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-server:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-common:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-client:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-servlet:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-http:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-security:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.http2:http2-hpack:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-io:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty.websocket:websocket-api:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: org.eclipse.jetty:jetty-util:9.3.2.v20150730" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.6.3" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.3" />
-          <element id="library" level="project" name="Gradle: com.h2database:h2:1.4.190" />
-          <element id="library" level="project" name="Gradle: com.fasterxml.jackson.module:jackson-module-kotlin:0.1-SNAPSHOT" />
-          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
-          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.4.1" />
-          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.1" />
-          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
-          <element id="library" level="project" name="Gradle: com.warrenstrange:googleauth:0.5.0" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1038" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.0-beta-1038" />
-          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.0.0-beta-1038" />
-          <element id="library" level="project" name="Gradle: org.apache.commons:commons-lang3:3.1" />
-          <element id="library" level="project" name="Gradle: org.antlr:antlr4-runtime:4.5.1-1" />
-          <element id="library" level="project" name="Gradle: org.mozilla:rhino:1.7R4" />
-          <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-slf4j-impl:2.4.1" />
-          <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-core:2.4.1" />
-          <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-api:2.4.1" />
-          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.12" />
-          <element id="library" level="project" name="Gradle: net.glxn.qrgen:android:2.0" />
-          <element id="library" level="project" name="Gradle: com.github.jknack:handlebars:3.0.0" />
-          <element id="library" level="project" name="Gradle: net.glxn.qrgen:core:2.0" />
-          <element id="library" level="project" name="Gradle: com.google.zxing:core:3.1.0" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/io/github/drmashu/buri/0.1-SNAPSHOT/buri-0.1-SNAPSHOT.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.190/df71536d44e3b07f0c15bb632cac51956c55fc3e/h2-1.4.190.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.0.0-beta-2423/505079036188f1e15d0fec2ba173dd52d9b575a3/kotlin-stdlib-1.0.0-beta-2423.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seasar.doma/doma/2.4.1/dc2cf0b3d4535c127628d5d7bd8fc29287334c65/doma-2.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.warrenstrange/googleauth/0.5.0/b305294e6658ce16026047b1a28da566f17b1f98/googleauth-0.5.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.glxn.qrgen/android/2.0/e193fae1a38d614a6cd2a2cc6d5cc4fb63ca6732/android-2.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.6.3/5c4fcae53dd82e2c549b8322d78c6ff47c94c8a8/jackson-databind-2.6.3.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.jknack/handlebars/3.0.0/3062bbfa57ff80bc441353294df9432068dc240f/handlebars-3.0.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-server/9.3.2.v20150730/f0c5887ef5ea8503ae74d6c094886a87875109b1/http2-server-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/io/github/drmashu/dikon/0.1-SNAPSHOT/dikon-0.1-SNAPSHOT.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.4.1/1153bec315f388b2635c25cf97105ae9dce61b58/log4j-slf4j-impl-2.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-server/9.3.2.v20150730/b43bc3a2fcabd1eb04a522b251d98efd010a2c0f/websocket-server-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.3.2.v20150730/a7ce8b11d340e152dd7dc94e7605c84230f05cf5/jetty-servlet-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.6.3-4/c841514f09cd0281aa9d21037849ad583876bf58/jackson-module-kotlin-2.6.3-4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.4.1/16d0bc512222f1253ee6b64d389c84e22f697f0/httpclient-4.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.glxn.qrgen/core/2.0/a4768205c0fa814b35374bb26586900d0ef8d4fe/core-2.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.6.0/a0990e2e812ac6639b6ce955c91b13228500476e/jackson-annotations-2.6.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.6.3/142ce64dcd709a4b5f6e7d71305a31d3893d077/jackson-core-2.6.3.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.1/905075e6c80f206bbe6cf1e809d2caa69f420c76/commons-lang3-3.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.5.1-1/66144204f9d6d7d3f3f775622c2dd7e9bd511d97/antlr4-runtime-4.5.1-1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mozilla/rhino/1.7R4/e982f2136574b9a423186fbaeaaa98dc3e5a5288/rhino-1.7R4.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-common/9.3.2.v20150730/54fd693010d8c02249e74d3a6d7990d8acdbe4d7/http2-common-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.3.2.v20150730/d53622049200cee5c344b29c848d581aa876f93e/jetty-server-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.4.1/a5334910f90944575147fd1c1aef9f407c24db99/log4j-core-2.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.4.1/594e5643c9267ac1e91960a6b7315cf368c9ea02/log4j-api-2.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-common/9.3.2.v20150730/bd2abf31292508104bacfaba7eceb88d7d5f9ad0/websocket-common-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-client/9.3.2.v20150730/f7cdf36509f8b9d8de49ed60dcb215aa92c36e41/websocket-client-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-servlet/9.3.2.v20150730/403f4956c46fc5d76257148b5ad36c1e1ca485cd/websocket-servlet-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.3.2.v20150730/5a811cf50295ddae7df488e62662524380f18821/jetty-http-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-security/9.3.2.v20150730/194f37706614f236bfbf384c1e7cf531771b38f7/jetty-security-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.1/f5aa318bda4c6c8d688c9d00b90681dcd82ce636/httpcore-4.4.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.1.0/908e18674f895e3e1fa8f4a954b8c637a23d2801/core-3.1.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-hpack/9.3.2.v20150730/ee86c2d50fd7efa079182840d7e86ae15ab1829d/http2-hpack-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.3.2.v20150730/22bd4ad4856527847772f975a997f17da1e6766/jetty-io-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.websocket/websocket-api/9.3.2.v20150730/be1525f9e86d45ff163394c573ff46773fb40812/websocket-api-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.3.2.v20150730/96eab74d8886ee9d51b6a3eeab9744807e842169/jetty-util-9.3.2.v20150730.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-runtime/1.0.0-beta-2423/593d30030ae8853fa40c793d2b22a1c27c44dc01/kotlin-runtime-1.0.0-beta-2423.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/8e20852d05222dc286bf1c71d78d0531e177c317/slf4j-api-1.7.12.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.0.0-beta-2423/2028e07a4b42de1f99d633a7b6568fa4620c254f/kotlin-reflect-1.0.0-beta-2423.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
